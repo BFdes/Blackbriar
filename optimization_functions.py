@@ -111,16 +111,20 @@ def genPenal(dimension,variables):
 #domain is [-10,10], Minimum is at all x=1 for f=0
 def levy(dimension, variables):
     varW=1+(variables-1)/4
-    a=
-    b=
-    c=
+    a=np.sin(np.pi*varW[0])**2
+    b1=np.power(var[:dimension-1]-1,2)
+    b2=1+np.power(np.sin(np.pi*varW[:dimension-1]+1),2)
+    b=np.sum(np.multiply(b1,b2))
+    c1=np.power(var[dimension-1]-1,2)
+    c2=1+np.power(np.sin(2*np.pi*varW[dimension-1]),2)
+    c=np.multiply(c1,c2)
     return a+b+c
-    
+
 #changing global minimum. Might be best to evaluate for d=10
 #[-d**2,d**2] bat d 10 it's f=-200
 def trid(dimension, variables):
-    a=sum((variables[i]**2 -1.0) for i in xrange(1,dimension+1))
-    b=sum(variables[i]*variables[i-1] for i in xrange(2,dimension+1))
+    a=np.sum(np.power(variables-1,2))
+    b=np.sum(np.multiply(variables[1:],variables[:dimension-1]))
     return a+b
     
 #simple integer step, 
