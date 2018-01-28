@@ -41,9 +41,10 @@ this algorithm uses lists and not numpy arrays
           	best_value  = trial_value
         else:
           	fail_count += 1
-      	#check whether it's time to set radius to smaller one.      if fail_count == reduce_iter:
-        	radius *= reduce_frac
-            fail_count =   0
+        #check whether it's time to set radius to smaller one.
+        if fail_count == reduce_iter:
+            radius *= reduce_frac
+            fail_count = 0
   
 	return best_value, best_postion
 

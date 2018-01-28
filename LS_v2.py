@@ -33,7 +33,7 @@ All of them are vectors
     for i_iter in range(max_iter):
 
         # tries random values in the vecinity of the best position so far        
-        p_trial = best_position + radius * nd.array([rnd.uniform(bounds[i][0],bounds[i][1]) for i in range(dim)])
+        p_trial = best_position + radius * np.array([rnd.uniform(bounds[i][0],bounds[i][1]) for i in range(dim)])
         trial_value = f(p_trial)
         #if trial values is better than best position, this gets substituted
         #Do with changing in place
@@ -41,10 +41,11 @@ All of them are vectors
           	best_position = np.copy(p_trial) 
           	best_value  = trial_value
         else:
-            #check whether it's time to set radius to smaller one. Resets failcount
           	fail_count += 1
-        	radius *= reduce_frac
-            fail_count =   0
+        #check whether it's time to set radius to smaller one.
+        if fail_count == reduce_iter:
+            radius *= reduce_frac
+            fail_count = 0
   
 	return best_value, best_postion
 
