@@ -1,7 +1,7 @@
 import numpy as np
 import random as rnd
 #This version of the function is not vectorized. Explicitly does NOT use numpy facilites
-def function LS_v2(f, p_init, max_iter, bounds, radius, reduce_iter, reduce_frac; params=[False]):
+def LS_v2(f, p_init, max_iter, bounds, radius, reduce_iter, reduce_frac; params=[False]):
 '''
 ---------------------
 Local Seach Algorithm
