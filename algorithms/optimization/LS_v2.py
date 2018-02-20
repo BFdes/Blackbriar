@@ -65,5 +65,5 @@ def LS_v2(f, p_init, max_iter, bounds, radius, reduce_iter, reduce_frac, params=
     # plotting
     if make_plot:
         return best_value, best_position, all_results
-	else:
-		return best_value, best_position
+    else:
+        return best_value, best_position
